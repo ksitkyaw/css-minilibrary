@@ -1,0 +1,23 @@
+/*The order of the import files is important.The lower imports can use the code of upper imports.That means 
+_base.scss which is a separate file can use the variables inside _variables.It is like all code will get written 
+inside here index.scss , so the code are literally in this one ultimate file*/
+
+//variables and functions
+@import "variables";
+@import "function";
+
+//base and layout
+@import 'base';
+@import 'breakpoints';
+@import 'grid';
+
+//colors
+@import 'colors';
+
+//components
+@import 'components/card';
+@import 'components/button';
+@import 'components/navbar';
+
+//utilities
+@import 'utilities';

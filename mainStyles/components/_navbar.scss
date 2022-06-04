@@ -1,0 +1,32 @@
+// % is a placeholder.It's almost like a normal css selectors but % included style rules will not transpile to css
+%flex-layout {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-sizing: border-box;
+}
+
+//the only difference between @extend and @mixin might be that @extend cannot take arguments
+.navbar {
+    @extend %flex-layout;
+    box-shadow: $base-box-shadow;
+    padding: $base-padding $base-padding * 2;
+
+    .site-title {
+        font-size: $font-size-lg;
+    }
+// we already had a container class but this container properties will only applied inside navbar as it is a child of it
+//no effect to the container outside of navbar
+    .container {
+        @extend %flex-layout;
+        
+    }
+}
+
+@each $key, $val in $colors {
+    .navbar-#{$key} {
+        @extend .navbar;
+        background-color: $val;
+    }
+}
